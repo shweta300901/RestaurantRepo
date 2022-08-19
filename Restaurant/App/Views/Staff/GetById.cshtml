@@ -1,0 +1,41 @@
+﻿@model DAL.Models.staff
+@{
+    ViewBag.Title = "GetById";
+
+}
+
+<div style="margin-top:50px; padding:10px;">
+    <nav class="navbar" style="background-color: #306aa4;">
+        <h2 style="color:#ffffff;">Member Info</h2>
+    </nav>
+    <table class=" table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>CODE</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>FATHER'S NAME</th>
+                <th>ADDRESS</th>
+                <th>DOJ</th>
+                <th>SALARY</th>
+                <th>AADHAR NO.</th>
+                <th>ACCOUNT NO.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.code</td>
+                <td>@Model.firstname</td>
+                <td>@Model.lastname</td>
+                <td>@Model.fathername</td>
+                <td>@Model.address</td>
+                <td>@Model.doj</td>
+                <td>@Model.salary</td>
+                <td>@Model.aadharno</td>
+                <td>@Model.accountno</td>
+            </tr>
+        </tbody>
+    </table>
+    @Html.ActionLink("Back", "GetAll", null, new { @class = "btn btn-danger" })
+
+</div>

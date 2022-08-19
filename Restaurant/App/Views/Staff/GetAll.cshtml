@@ -1,0 +1,46 @@
+﻿@model List<DAL.Models.staff>
+@{
+    ViewBag.Title = "GetAll";
+}
+
+
+<div style="margin-top:50px; padding:10px;">
+    <nav class="navbar" style="background-color: #306aa4;">
+        <h2 style="color:#ffffff;">Manage Staff Members</h2>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="btn btn-success" href="/staff/SaveMember" role="button">Add New Member</a>
+            </li>
+        </ul>
+    </nav>
+    <table class=" table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">CODE</th>
+                <th scope="col">FIRST NAME</th>
+                <th scope="col">LAST NAME</th>
+                <th scope="col">DOJ</th>
+                <th scope="col">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var memb in Model)
+            {
+                <tr>
+                    <td scope="row">@memb.code</td>
+                    <td scope="row">@memb.firstname</td>
+                    <td scope="row">@memb.lastname</td>
+                    <td scope="row">@memb.doj</td>
+                    <td scope="row">
+                        @Html.ActionLink("Edit", "UpdateMember", new { id = memb.id }) |
+                        @Html.ActionLink("Details", "GetById", new { id = memb.id }) |
+                        @Html.ActionLink("Delete", "DeleteMember", new { id = memb.id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-danger" href="/Home/Home" role="button">Back</a>
+</div>
+

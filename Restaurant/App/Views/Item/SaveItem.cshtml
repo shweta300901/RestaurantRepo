@@ -1,0 +1,41 @@
+﻿@model DAL.Models.Item
+@{
+    ViewBag.Title = "SaveItem";
+}
+
+<div style="margin-top:50px; padding:10px;">
+
+    @using (Html.BeginForm("SaveItem", "Item", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            <h4>Add Item</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.ItemId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ItemId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ItemPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ItemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-success" />
+                @Html.ActionLink("Cancel", "GetAll", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    }
+</div>

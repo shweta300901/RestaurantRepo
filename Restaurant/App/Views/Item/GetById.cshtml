@@ -1,0 +1,20 @@
+﻿@model DAL.Models.Item
+@{
+    ViewBag.Title = "GetById";
+
+}
+
+<div style="width:100%; margin-left:auto; margin-right:auto; padding:25px;">
+    <table class="table-hover table-striped" style="width:100%; margin-left:auto; margin-right:auto; padding:15px; border-collapse:collapse; border-color:red;">
+        <tr>
+            <th>ITEM ID</th>
+            <th>ITEM NAME</th>
+            <th>ITEM PRICE</th>
+        </tr>
+        <tr>
+            <td>@Model.ItemId</td>
+            <td>@Model.ItemName</td>
+            <td>@Model.ItemPrice</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,43 @@
+﻿@model List<DAL.Models.Item>
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<div style="margin-top:50px; padding:10px;">
+    <nav class="navbar" style="background-color: #306aa4;">
+        <h2 style="color:#ffffff;">Manage Items</h2>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="btn btn-success" href="/Item/SaveItem" role="button">Add New Item</a>
+            </li>
+        </ul>
+    </nav>
+    <table class=" table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Item Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">@item.ItemId</td>
+                    <td>@item.ItemName</td>
+                    <td>@item.ItemPrice</td>
+                    <td>
+                        @Html.ActionLink("Edit", "UpdateItem", new { id = item.ItemId }) |
+                        @Html.ActionLink("Delete", "DeleteItem", new { id = item.ItemId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-danger" href="/Home/Home" role="button">Back</a>
+</div>
+
+
